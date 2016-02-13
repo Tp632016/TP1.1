@@ -6,7 +6,6 @@ package tp1;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.security.util.Length;
 
 /**
  *
@@ -154,20 +153,22 @@ public class Main {
     public static int [] mulNombre(int [] nb1, int [] nb2) throws Exception
     {
         int tailleTab = nb1.length + nb2.length;
-        int [] result = {};
-        int [] gdNb, ptNb;
+        int [] gdNb, ptNb, result = {};
         NombreA2Chiffres tmp,tmp2;
         int retenu = 0;
-                
-        if(nb1.length >= nb2.length) { gdNb = nb1; ptNb = nb2; }
-        else { gdNb = nb2; ptNb = nb1; }
+        
+             
+        if(nb1.length >= nb2.length) { 
+            gdNb = nb1; ptNb = nb2; 
+        }
+        else { 
+            gdNb = nb2; ptNb = nb1; 
+        }
         
         int [][] resultTmp = new int[ptNb.length][tailleTab];
         
-        for(int j=0; j<ptNb.length; j++)
-        {
-            for(int i=0; i < gdNb.length; i++)
-            {
+        for(int j=0; j<ptNb.length; j++){
+            for(int i=0; i < gdNb.length; i++){
                 
                 tmp = arith(ptNb[j],gdNb[i], true);
                 tmp2 = arith(tmp.getC2(),retenu,false);
@@ -180,14 +181,12 @@ public class Main {
         
         
         // Calcul du résultat final
-        for(int j=0; j<ptNb.length;j++ )
-        {
+        for(int j=0; j<ptNb.length;j++ ) {
             result = sommeNombre(result,resultTmp[j]);
         }
         
         
-        if(result[tailleTab-1] == 0)
-        {
+        if(result[tailleTab-1] == 0) {
             int [] supZero = new int [tailleTab-1];
             System.arraycopy(result, 0, supZero, 0, supZero.length);
             return supZero;
