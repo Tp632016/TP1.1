@@ -15,13 +15,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
-import static tp1.Main.arith;
 import static tp1.Main.mulNombre;
 import static tp1.Main.sommeNombre;
 
 /**
  *
- * @author Quentin
+ * @author Quentin CHAPELLE
  */
 public class NombreA2ChiffresTest {
     
@@ -94,7 +93,7 @@ public class NombreA2ChiffresTest {
     public void test_OK_addtestArith(){
         
         try {
-            NombreA2Chiffres result = arith(1,2,false);
+            NombreA2Chiffres result = NombreA2Chiffres.arith(1,2,false);
             assertEquals(result.getC1(), 0);
             assertEquals(result.getC2(), 3);
         } catch (Exception ex) {
@@ -106,7 +105,7 @@ public class NombreA2ChiffresTest {
     @Test
     public void test_OK_multestArith(){ 
         try {
-            NombreA2Chiffres result = arith(6,2,true);
+            NombreA2Chiffres result = NombreA2Chiffres.arith(6,2,true);
             assertEquals(result.getC1(), 1);
             assertEquals(result.getC2(), 2);
         } catch (Exception ex) {
@@ -117,11 +116,11 @@ public class NombreA2ChiffresTest {
         @Test
     public void test_OK_addNegtestArith(){ 
         try {
-            NombreA2Chiffres result = arith(6,-2,false);
+            NombreA2Chiffres result = NombreA2Chiffres.arith(6,-2,false);
             assertEquals(result.getC1(), 0);
             assertEquals(result.getC2(), 4);
             
-            NombreA2Chiffres result2 = arith(4,-6,false);
+            NombreA2Chiffres result2 = NombreA2Chiffres.arith(4,-6,false);
             assertEquals(result2.getC1(), 0);
             assertEquals(result2.getC2(), -2);
         } catch (Exception ex) {
@@ -134,7 +133,7 @@ public class NombreA2ChiffresTest {
     {
         
         try {
-            NombreA2Chiffres result = arith(10,9,true);
+            NombreA2Chiffres result = NombreA2Chiffres.arith(10,9,true);
             fail("Invalid object and no exception");
         } catch (Exception ex) {
             assertNotNull(ex.getMessage());

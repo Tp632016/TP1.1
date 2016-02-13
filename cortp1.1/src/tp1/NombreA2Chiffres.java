@@ -7,7 +7,7 @@ package tp1;
 
 /**
  *
- * @author Quentin
+ * @author Quentin CHAPELLE
  */
 public final class NombreA2Chiffres {
     
@@ -38,6 +38,33 @@ public final class NombreA2Chiffres {
         }
     }
     
+    public static NombreA2Chiffres arith(int x, int y, boolean b) throws Exception
+    {
+        if(NombreA2Chiffres.testChiffre(x) && NombreA2Chiffres.testChiffre(y))
+        {
+            int c1,c2,result;
+            
+            if(b) {
+                // Multiplication
+                result = x * y;
+            }
+            else
+            {
+                // Addition
+                result = x + y;
+            }
+            
+            c1 = result/10;
+            c2 = result - (c1*10);
+            
+            return new NombreA2Chiffres(c1,c2);
+        }
+        else
+        {
+            throw new Exception("Arith: Bad param");
+        }
+    
+    }
     
 
     /**
